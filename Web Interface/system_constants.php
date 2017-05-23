@@ -10,11 +10,13 @@ $action = escape($_REQUEST["action"]);
 $status = escape($_REQUEST["status"]);
 $page = escape($_REQUEST["page"]);
 
+$types = array("i"=>'Internal', "e"=> 'External');
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>IP Reputation</title>
+  <title>System Constants</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -26,20 +28,21 @@ $page = escape($_REQUEST["page"]);
 <body>
 <div class="container">
 <?php include("menu.php");?>
-  <h2>IP Reputation Scores</h2>
-  <p>This table contains the reputaion scores for IP addresses.</p>
+  <h2>System Constants</h2>
+  <p>This table contains the system constants.</p>
   <table class="table table-striped  table-hover">
     <thead>
       <tr>
-        <th>IP Address</th>
-        <th>Reputation Score</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Value</th>
       </tr>
     </thead>
     <tbody>
       <?php
-      $table = 'reputation';
-      if(empty($page)) $page = 1;
-      $offset = ($page-1)*30;
+      $table = 'system_constants';
+      if(empty($page)) $page = 0;
+      $offset = $page*30;
       $limit=30;
       $query = "SELECT * FROM $table LIMIT $limit OFFSET $offset;";
       $row = sqlQuery($query);
@@ -47,11 +50,9 @@ $page = escape($_REQUEST["page"]);
       {
    ?>
       <tr>
-        <td><?php echo $row[$i]['ip']; ?></td>
-        <td><?php echo $row[$i]['reputation'];?>
-        <div class="bar_out"><div class="bar_in" style="width:<?php echo $row[$i]['reputation'].'%';?>"></div></div>
-      </td>
-        <td>View</td>
+        <td><?php echo $row[$i]['name']; ?></td>
+        <td><?php echo $row[$i]['description'];?></td>
+        <td><?php echo $row[$i]['value'];?></td>
       </tr>
       <?php
     }

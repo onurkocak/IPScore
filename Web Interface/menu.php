@@ -14,7 +14,7 @@
               </li>
               <li><a href="ip_list.php">IP Reputation</a>
               </li>
-              <li><a href="settings.php">Settings</a>
+              <li><a href="system_constants.php">System Constants</a>
               </li>
           </ul>
       </div>

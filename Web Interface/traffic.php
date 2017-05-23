@@ -36,7 +36,6 @@ $page = escape($_REQUEST["page"]);
         <th>Destionation IP</th>
         <th>Protocol</th>
         <th>Port</th>
-        <th>Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -56,7 +55,6 @@ $page = escape($_REQUEST["page"]);
         <td><?php echo $row[$i]['dstip'];?></td>
         <td><?php echo $row[$i]['service'];?></td>
         <td><?php echo $row[$i]['port'];?></td>
-        <td>View</td>
       </tr>
       <?php
     }

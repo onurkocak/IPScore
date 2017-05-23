@@ -37,7 +37,6 @@ $types = array("i"=>'Internal', "e"=> 'External');
         <th>Port</th>
         <th>Description</th>
         <th>Type</th>
-        <th>Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -52,11 +51,10 @@ $types = array("i"=>'Internal', "e"=> 'External');
       {
    ?>
       <tr>
-        <td><?php echo $row[$i]['protocol']; ?></td>
+        <td><?php echo $row[$i]['service']; ?></td>
         <td><?php echo $row[$i]['port'];?></td>
         <td><?php echo $row[$i]['description'];?></td>
         <td><?php echo $types[$row[$i]['type']];?></td>
-        <td>View</td>
       </tr>
       <?php
     }
